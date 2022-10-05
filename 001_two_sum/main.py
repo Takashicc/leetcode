@@ -17,14 +17,24 @@ from typing import List
 
 class Solution:
     # First solution
+    # def twoSum(self, nums: List[int], target: int) -> List[int]:
+    #     for i in range(len(nums)):
+    #         num1 = nums[i]
+    #         remaining = target - num1
+    #         for j in range(i + 1, len(nums)):
+    #             num2 = nums[j]
+    #             if remaining == num2:
+    #                 return [i, j]
+
+    # Second solution
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in range(len(nums)):
-            num1 = nums[i]
-            remaining = target - num1
-            for j in range(i + 1, len(nums)):
-                num2 = nums[j]
-                if remaining == num2:
-                    return [i, j]
+        lookup = {}
+        for i, num in enumerate(nums):
+            remaining = target - num
+            if remaining in lookup:
+                return [lookup[remaining], i]
+            else:
+                lookup[num] = i
 
 
 def main():
