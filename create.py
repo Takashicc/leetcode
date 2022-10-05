@@ -36,6 +36,7 @@ def main():
         while True:
             try:
                 num = int(input("Number? (e.g., 242): "))
+                num = f'{num:03}'
             except ValueError:
                 red_print("Cannot parse to number. Please try again.")
                 continue
